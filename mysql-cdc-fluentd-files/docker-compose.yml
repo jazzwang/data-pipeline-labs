@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+  fluentd:
+    build: ./fluentd
+    image: jazzwang/fluentd:latest
+    hostname: fluentd
+    container_name: fluentd
+    volumes:
+      - ./fluentd/etc:/fluentd/etc
+      - ./fluentd/data:/tmp
+  
+  mysql:
+    image: mysql:5.7
+    hostname: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/conf.d:/etc/mysql/conf.d
