@@ -9,7 +9,6 @@ services:
     container_name: fluentd
     volumes:
       - ./fluentd/etc:/etc/td-agent
-      - ./fluentd/data:/tmp
   
   mysql:
     image: mysql:5.7

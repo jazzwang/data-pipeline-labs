@@ -19,7 +19,7 @@ RUN echo "deb http://packages.treasuredata.com/3/debian/stretch/ stretch contrib
     td-agent-gem install \
         fluent-plugin-mysql-replicator \
         --no-rdoc --no-ri  && \
-    apt-get autoremove --purge -y build-essential libmariadb-dev && \
+    apt-get autoremove --purge -y build-essential && \
     apt-get autoclean && \
     rm -rf /var/lib/apt/lists/*
 
