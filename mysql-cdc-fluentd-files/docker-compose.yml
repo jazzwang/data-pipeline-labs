@@ -4,11 +4,11 @@ services:
 
   fluentd:
     build: ./fluentd
-    image: jazzwang/fluentd:latest
+    image: jazzwang/td-agent:3
     hostname: fluentd
     container_name: fluentd
     volumes:
-      - ./fluentd/etc:/fluentd/etc
+      - ./fluentd/etc:/etc/td-agent
       - ./fluentd/data:/tmp
   
   mysql:
