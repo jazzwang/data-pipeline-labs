@@ -9,13 +9,15 @@ services:
     container_name: fluentd
     volumes:
       - ./fluentd/etc:/etc/td-agent
+      - ./fluentd/output:/data
   
   mysql:
     image: mysql:5.7
     hostname: mysql
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      - MYSQL_ROOT_PASSWORD=example
+      - MYSQL_DATABASE=myweb
     volumes:
-      - ./mysql/data:/var/lib/mysql
-      - ./mysql/conf.d:/etc/mysql/conf.d
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql/app:/app
