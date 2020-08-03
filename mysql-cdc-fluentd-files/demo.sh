@@ -32,7 +32,11 @@ sleep 10
 docker exec fluentd ls /tmp/buffer
 echo "[35;1m <INFO> show fluentd output gz files ...[0m"
 sleep 10 
-ls -alR fluentd/output
+if [ "$(which tree)" != "" ]; then
+  tree fluentd/output
+else
+  ls -alR fluentd/output
+fi
 jobs
 sleep 10 
 docker-compose down
